@@ -1,2 +1,6 @@
 #!/usr/bin/env bash
-echo "--- {}"
+echo "--- RELEASING MECAB"
+ls $1;
+echo $1;
+
+sed -i -e 's/^dicdir/dicdir = \/app\/mecab-dict\n; dicdir/g' $1/etc/mecabrc
