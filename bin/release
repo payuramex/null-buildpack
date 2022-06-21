@@ -2,5 +2,6 @@
 echo "--- RELEASING MECAB"
 ls $1;
 echo $1;
+ls /app;
 
 sed -i -e 's/^dicdir/dicdir = \/app\/mecab-dict\n; dicdir/g' $1/etc/mecabrc
