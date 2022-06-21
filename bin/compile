@@ -17,7 +17,7 @@ echo_header "Creating profile.d script"
 
 mkdir -p $1/$output_dir
 cat << EOF > $1/$output_path
-sed -i -e 's/^dicdir/dicdir = \/app\/mecab-dict\n; dicdir/g' ${MECABRC}
+sed -i -e 's/^dicdir/dicdir = \/app\/mecab-dict\n; dicdir/g' /app/.apt/etc/mecabrc
 EOF
 
 echo_indented "Script installed to $output_path"
