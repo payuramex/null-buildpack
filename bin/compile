@@ -5,6 +5,7 @@ wget -q https://uehr-service.s3-ap-northeast-1.amazonaws.com/mecab-dict.tar.xz &
 
 echo ">????";
 echo $1;
+ls $1;
 
 # デフォルトでneologd辞書を使用
-sed -i -e 's/^dicdir/dicdir = \/app\/mecab-dict\n; dicdir/g' ${MECABRC}
+sed -i -e 's/^dicdir/dicdir = \/app\/mecab-dict\n; dicdir/g' $1/etc/mecabrc
