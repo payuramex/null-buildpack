@@ -2,3 +2,22 @@
 echo "-----> Adding Mecab to release"
 
 wget -q https://uehr-service.s3-ap-northeast-1.amazonaws.com/mecab-dict.tar.xz && tar -xf mecab-dict.tar.xz &
+
+echo_header() {
+  echo "-----> $1"
+}
+echo_indented() {
+  echo "       $1"
+}
+
+output_dir=.profile.d
+output_path=$output_dir/mecab.sh
+
+echo_header "Creating profile.d script"
+
+mkdir -p $1/$output_dir
+cat << EOF > $1/$output_path
+sed -i -e 's/^dicdir/dicdir = \/app\/mecab-dict\n; dicdir/g' ${MECABRC}
+EOF
+
+echo_indented "Script installed to $output_path"
